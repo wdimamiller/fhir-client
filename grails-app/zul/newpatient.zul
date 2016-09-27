@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window apply="fhir.client.NewpatientComposer">
+
+        <hbox align="center">
+            <image src="${z.resource(dir:'images', file:'zkpowered_s.png')}"/>
+            <image src="${z.resource(dir:'images', file:'grails_logo.png')}"/>
+        </hbox>
+
+        <vbox>
+            <hbox>
+                <label id="lbFirstName"/>
+                <textbox id="tbFirstName" />
+            </hbox>
+
+            <textbox id="tbSecondName" />
+            <textbox id="tbLastName" />
+            <datebox id="dbDateOfBirth"/>
+            <button id="btnSave" label="${z.message(code:'default.button.save.label')}"/>
+        </vbox>
+        <vbox>
+            <button id="btnFind" label="Find all"/>
+            <grid id="patientList">
+                <columns>
+                    <column id="colName" label="name"/>
+                    <column id="colSurname" label="Surname"/>
+                    <column id="colDateOfBirth" label="Date of Birth" />
+
+                </columns>
+            </grid>
+        </vbox>
+
+
+    </window>
+
+</zk>
